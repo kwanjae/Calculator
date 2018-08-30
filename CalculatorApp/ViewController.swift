@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        formulaLabel.text = ""
+        answerLabel.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +25,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func inputFormula(_ sender: UIButton) {
+        guard let formulaText = formulaLabel.text else {
+            return
+        }
+        guard let senderedText = sender.titleLabel?.text else {
+            return
+        }
+        formulaLabel.text = formulaText + senderedText
     }
     @IBAction func clearCalculation(_ sender: UIButton) {
     }
